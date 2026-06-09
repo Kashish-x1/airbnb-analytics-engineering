@@ -60,7 +60,7 @@ Slowly Changing Dimensions to track historical changes:
 ## 📁 Project Structure
 
 ```
-AWS_DBT_Snowflake/
+AIRBNB_project/
 ├── README.md                           # This file
 ├── pyproject.toml                      # Python dependencies
 ├── main.py                             # Main execution script
@@ -74,7 +74,7 @@ AWS_DBT_Snowflake/
 │   ├── ddl.sql                         # Table creation scripts
 │   └── resources.sql
 │
-└── aws_dbt_snowflake_project/         # Main dbt project
+└── AIRBNB_project/         # Main dbt project
     ├── dbt_project.yml                 # dbt project configuration
     ├── ExampleProfiles.yml             # Snowflake connection profile
     │
