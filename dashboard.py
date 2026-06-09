@@ -20,7 +20,7 @@ st.set_page_config(
 conn = snowflake.connector.connect(
     account="ZYWICWI-OF68525",
     user="ABHINAV",
-    password="HGZH96qxCXudv42",
+    password="",
     warehouse="COMPUTE_WH",
     database="AIRBNB",
     schema="GOLD",
