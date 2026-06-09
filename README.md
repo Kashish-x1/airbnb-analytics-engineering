@@ -10,9 +10,21 @@ The pipeline processes Airbnb listings, bookings, and hosts data through a medal
 
 ### Data Flow
 ```
-Source Data (CSV) → AWS S3 → Snowflake (Staging) → Bronze Layer → Silver Layer → Gold Layer
-                                                           ↓              ↓           ↓
-                                                      Raw Tables    Cleaned Data   Analytics
+Source Data (CSV)
+        ↓
+AWS S3
+        ↓
+Snowflake (Staging)
+        ↓
+Bronze Layer
+        ↓
+Silver Layer
+        ↓
+Gold Layer (OBT, Fact & Dimensions)
+        ↓
+Streamlit Analytics Dashboard
+
+Raw Data → Cleaned Data → Analytics-Ready Data → Interactive Visualization
 ```
 
 ### Technology Stack
@@ -28,6 +40,8 @@ Source Data (CSV) → AWS S3 → Snowflake (Staging) → Bronze Layer → Silver
   - Custom macros
   - Jinja templating
   - Testing and documentation
+  - **Dashboard & Visualization**: Streamlit
+  - **Interactive Charts**: Plotly
 
 ## 📊 Data Model
 
@@ -50,6 +64,34 @@ Business-ready datasets optimized for analytics:
 - `obt` (One Big Table) - Denormalized fact table joining bookings, listings, and hosts
 - `fact` - Fact table for dimensional modeling
 - Ephemeral models for intermediate transformations
+## 📊 Interactive Analytics Dashboard
+
+An interactive Streamlit dashboard was built on top of the Gold Layer (OBT Model) to provide business insights and visual analytics.
+
+### Dashboard Features
+
+- Total Revenue KPI
+- Total Bookings KPI
+- Total Hosts KPI
+- Total Listings KPI
+- Revenue by Property Type
+- Booking Status Distribution
+- Revenue by Country
+- Top Cities by Revenue
+- Host Quality Analysis
+- Superhost Distribution
+- Price Category Analysis
+- Interactive Filters (Country & Room Type)
+
+### Dashboard Architecture
+
+AWS S3 → Snowflake → dbt (Bronze → Silver → Gold) → Streamlit Dashboard
+
+### Run Dashboard
+
+```bash
+streamlit run dashboard.py
+```
 
 ### Snapshots (SCD Type 2)
 Slowly Changing Dimensions to track historical changes:
@@ -352,10 +394,7 @@ This project is part of a data engineering portfolio demonstration.
 
 ## 📊 Future Enhancements
 
-- [ ] Add data quality dashboards
-- [ ] Implement CI/CD pipeline
-- [ ] Add more complex business metrics
-- [ ] Integrate with BI tools (Tableau/Power BI)
-- [ ] Add alerting and monitoring
-- [ ] Implement data masking for PII
-- [ ] Add more comprehensive testing suite
+- [x] Interactive Streamlit Dashboard
+- [ ] Add advanced business KPIs
+- [ ] Deploy dashboard on Streamlit Cloud
+- [ ] Add forecasting and trend analysis
