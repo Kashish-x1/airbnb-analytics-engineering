@@ -20,7 +20,7 @@ st.set_page_config(
 conn = snowflake.connector.connect(
     account="ZYWICWI-OF68525",
     user="ABHINAV",
-    password="",
+    password="HGZH96qxCXudv42",
     warehouse="COMPUTE_WH",
     database="AIRBNB",
     schema="GOLD",
@@ -38,10 +38,24 @@ df = pd.read_sql(query, conn)
 # TITLE
 # --------------------------------------------------
 
-st.title("🏠 Airbnb Analytics Dashboard")
-st.image(
-    "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
-    use_container_width=True
+st.markdown("""
+<div style="text-align:center;">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg"
+width="120">
+
+<h1 style="margin-top:10px;">
+Airbnb Analytics Dashboard
+</h1>
+
+<p style="font-size:20px; color:gray;">
+End-to-End Data Engineering Pipeline using Snowflake, dbt & Streamlit
+</p>
+
+</div>
+""", unsafe_allow_html=True)
+st.success(
+    "Built using AWS S3 • Snowflake • dbt • Streamlit Dashboard"
 )
 
 st.info("""
